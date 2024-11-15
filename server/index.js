@@ -15,17 +15,24 @@ app.use(cors());
 // Connect to MongoDB
 connectDB();
 
-// Swagger setup
+
+// Swagger configuration options
 const swaggerOptions = {
   swaggerDefinition: {
     openapi: '3.0.0',
-    info: { title: 'Car Management API', version: '1.0.0', description: 'API for managing cars' },
-    servers: [{ url: 'https://spyne-ai-seven.vercel.app' }],
-    components: { securitySchemes: { bearerAuth: { type: 'http', scheme: 'bearer', bearerFormat: 'JWT' } } },
-    security: [{ bearerAuth: [] }]
+    info: {
+      title: 'Car Management API',
+      version: '1.0.0',
+      description: 'API for managing cars and users'
+    },
+    servers: [
+      { url: 'https://spyne-ai-seven.vercel.app/api' }, // Update this to match your deployed URL
+    ],
   },
-  apis: ['./routes/*.js']
+  apis: ['./routes/*.js'], // Update the path to your route files if needed
 };
+
+// Initialize Swagger
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
