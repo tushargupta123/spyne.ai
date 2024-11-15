@@ -8,13 +8,11 @@ const Signup = () => {
   const navigate = useNavigate();
 
   const handleSignup = async () => {
-    console.log(form)
     try {
       await api.post('/users/signup', form);
       alert('Signup successful! Redirecting to login...');
       navigate('/login');
     } catch (err) {
-        console.log(err);
       setError('Signup failed. Please try again.');
     }
   };

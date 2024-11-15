@@ -20,7 +20,7 @@ const swaggerOptions = {
   swaggerDefinition: {
     openapi: '3.0.0',
     info: { title: 'Car Management API', version: '1.0.0', description: 'API for managing cars' },
-    servers: [{ url: 'http://localhost:8080' }],
+    servers: [{ url: 'https://spyne-ai-seven.vercel.app' }],
     components: { securitySchemes: { bearerAuth: { type: 'http', scheme: 'bearer', bearerFormat: 'JWT' } } },
     security: [{ bearerAuth: [] }]
   },
